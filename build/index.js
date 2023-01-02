@@ -95,6 +95,16 @@ function App() {
   ] });
 }
 
+// app/routes/newroute/index.tsx
+var newroute_exports = {};
+__export(newroute_exports, {
+  default: () => Unterseite
+});
+var import_jsx_runtime3 = require("react/jsx-runtime");
+function Unterseite() {
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "flex h-full min-h-screen flex-col", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h1", { children: "Hallo Unterseite" }) });
+}
+
 // app/routes/reviews/index.tsx
 var reviews_exports = {};
 __export(reviews_exports, {
@@ -110,16 +120,16 @@ function getReviews() {
 }
 
 // app/routes/reviews/index.tsx
-var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_jsx_runtime4 = require("react/jsx-runtime");
 async function loader({ request }) {
   let noteListItems = await getReviews();
   return (0, import_node2.json)({ noteListItems });
 }
 function NotesPage() {
   let data = (0, import_react3.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "flex h-full min-h-screen flex-col", children: data.noteListItems.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "p-4", children: "No notes yet" }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { children: data.noteListItems.map((review) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { children: review.name }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: review.text })
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex h-full min-h-screen flex-col", children: data.noteListItems.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "p-4", children: "No notes yet" }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: data.noteListItems.map((review) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { children: review.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: review.text })
   ] })) }) });
 }
 
@@ -146,13 +156,13 @@ var routes_exports = {};
 __export(routes_exports, {
   default: () => Index
 });
-var import_jsx_runtime4 = require("react/jsx-runtime");
+var import_jsx_runtime5 = require("react/jsx-runtime");
 function Index() {
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("main", { className: "min-h-screen", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h1", { children: "Hallo Welt" }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("main", { className: "min-h-screen", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { children: "Hallo Welt" }) });
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "03fe8e52", entry: { module: "/build/entry.client-NFEMGWEF.js", imports: ["/build/_shared/chunk-GJSIWBVP.js", "/build/_shared/chunk-LMXH6R3J.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KKIYDW2W.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-ENZMXEOM.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/index": { id: "routes/reviews/index", parentId: "root", path: "reviews", index: !0, caseSensitive: void 0, module: "/build/routes/reviews/index-NIG67ADA.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-03FE8E52.js" };
+var assets_manifest_default = { version: "927a9792", entry: { module: "/build/entry.client-NFEMGWEF.js", imports: ["/build/_shared/chunk-GJSIWBVP.js", "/build/_shared/chunk-LMXH6R3J.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KKIYDW2W.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-ENZMXEOM.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/newroute/index": { id: "routes/newroute/index", parentId: "root", path: "newroute", index: !0, caseSensitive: void 0, module: "/build/routes/newroute/index-CRUNKCRI.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/index": { id: "routes/reviews/index", parentId: "root", path: "reviews", index: !0, caseSensitive: void 0, module: "/build/routes/reviews/index-NIG67ADA.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-927A9792.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -163,6 +173,14 @@ var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath 
     index: void 0,
     caseSensitive: void 0,
     module: root_exports
+  },
+  "routes/newroute/index": {
+    id: "routes/newroute/index",
+    parentId: "root",
+    path: "newroute",
+    index: !0,
+    caseSensitive: void 0,
+    module: newroute_exports
   },
   "routes/reviews/index": {
     id: "routes/reviews/index",
