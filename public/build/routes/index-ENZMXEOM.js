@@ -1,1 +1,0 @@
-import{b as a}from"/build/_shared/chunk-LMXH6R3J.js";import{c as n}from"/build/_shared/chunk-Q3IECNXJ.js";var e=n(a());function l(){return(0,e.jsx)("main",{className:"min-h-screen",children:(0,e.jsx)("h1",{children:"Hallo Welt"})})}export{l as default};
