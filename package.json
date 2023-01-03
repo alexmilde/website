@@ -17,7 +17,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc -b",
     "validate": "run-p test lint typecheck check",
-    "server": "node server.js"
+    "server": "nodemon server.js"
   },
   "prettier": {},
   "eslintIgnore": [
@@ -31,8 +31,10 @@
     "@remix-run/react": "^1.9.0",
     "@remix-run/serve": "^1.9.0",
     "@remix-run/server-runtime": "^1.9.0",
+    "connect-livereload": "^0.6.1",
     "dotenv": "^16.0.3",
     "isbot": "^3.6.3",
+    "livereload": "^0.9.3",
     "prisma": "^4.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -58,6 +60,7 @@
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "happy-dom": "^6.0.4",
+    "nodemon": "^2.0.20",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.18",
     "prettier": "2.7.1",
