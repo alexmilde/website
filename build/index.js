@@ -72,7 +72,7 @@ __export(root_exports, {
 var import_react2 = require("@remix-run/react");
 
 // app/styles/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-IT4SVPXB.css";
+var tailwind_default = "/build/_assets/tailwind-JFCLS6YR.css";
 
 // app/root.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime"), links = () => [{ rel: "stylesheet", href: tailwind_default }], meta = () => ({
@@ -156,16 +156,234 @@ var routes_exports = {};
 __export(routes_exports, {
   default: () => Index
 });
-var import_jsx_runtime5 = require("react/jsx-runtime");
+var import_react4 = require("react"), import_solid = require("@heroicons/react/20/solid"), import_react5 = require("@headlessui/react"), import_outline = require("@heroicons/react/24/outline"), import_jsx_runtime5 = require("react/jsx-runtime"), product = {
+  name: "Alex Milde",
+  price: "--- \u20AC",
+  rating: 3.9,
+  reviewCount: 4,
+  href: "#",
+  breadcrumbs: [
+    { id: 1, name: "Developer", href: "#" },
+    { id: 2, name: "Fullstack", href: "#" }
+  ],
+  images: [
+    {
+      id: 1,
+      imageSrc: "images/IMG_0779.jpeg",
+      imageAlt: "Back of women's Basic Tee in black.",
+      primary: !0
+    },
+    {
+      id: 2,
+      imageSrc: "images/IMG_0803.jpeg",
+      imageAlt: "Side profile of women's Basic Tee in black.",
+      primary: !1
+    },
+    {
+      id: 3,
+      imageSrc: "images/IMG_8312.JPG",
+      imageAlt: "Front of women's Basic Tee in black.",
+      primary: !1
+    }
+  ],
+  colors: [
+    { name: "Black", bgColor: "bg-gray-900", selectedColor: "ring-gray-900" },
+    { name: "Heather Grey", bgColor: "bg-gray-400", selectedColor: "ring-gray-400" }
+  ],
+  sizes: [
+    { name: "Vue", inStock: !0 },
+    { name: "React", inStock: !0 },
+    { name: "Php", inStock: !0 },
+    { name: "CI-CD", inStock: !0 },
+    { name: "JS/TS", inStock: !0 },
+    { name: "IE 9", inStock: !1 }
+  ],
+  description: `
+      <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
+      <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+    `,
+  details: [
+    "Only the best materials",
+    "Ethically and locally made",
+    "Pre-washed and pre-shrunk",
+    "Machine wash cold with similar colors"
+  ]
+}, policies = [
+  { name: "International delivery", icon: import_outline.GlobeAmericasIcon, description: "Get your order in 2 years" },
+  { name: "Loyalty rewards", icon: import_outline.CurrencyDollarIcon, description: "Don't look at other tees" }
+];
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 function Index() {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("main", { className: "min-h-screen", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { children: "Hallo Welt." }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { children: "Hallo Welt." })
-  ] });
+  let [selectedColor, setSelectedColor] = (0, import_react4.useState)(product.colors[0]), [selectedSize, setSelectedSize] = (0, import_react4.useState)(product.sizes[2]);
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "pt-6 pb-16 sm:pb-24", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("nav", { "aria-label": "Breadcrumb", className: "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("ol", { role: "list", className: "flex items-center space-x-4", children: [
+      product.breadcrumbs.map((breadcrumb) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: breadcrumb.href, className: "mr-4 text-base text-gray-900 font-sofia-medium", children: breadcrumb.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "svg",
+          {
+            viewBox: "0 0 6 20",
+            xmlns: "http://www.w3.org/2000/svg",
+            "aria-hidden": "true",
+            className: "h-5 w-auto text-gray-300",
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z", fill: "currentColor" })
+          }
+        )
+      ] }) }, breadcrumb.id)),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { className: "text-sm", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: product.href, "aria-current": "page", className: "text-base text-gray-500 hover:text-gray-600 font-sofia-medium", children: product.name }) })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "lg:col-span-5 lg:col-start-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex justify-between", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { className: "text-xl font-medium text-gray-900", children: product.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-xl font-medium text-gray-900", children: product.price })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "sr-only", children: "Reviews" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", { className: "text-sm text-gray-700", children: [
+              product.rating,
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "sr-only", children: " out of 5 stars" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "ml-1 flex items-center", children: [0, 1, 2, 3, 4].map((rating) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              import_solid.StarIcon,
+              {
+                className: classNames(
+                  product.rating > rating ? "text-yellow-400" : "text-gray-200",
+                  "h-5 w-5 flex-shrink-0"
+                ),
+                "aria-hidden": "true"
+              },
+              rating
+            )) }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { "aria-hidden": "true", className: "ml-4 text-sm text-gray-300", children: "\xB7" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "ml-4 flex", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("a", { href: "#", className: "text-sm font-medium text-indigo-600 hover:text-indigo-500", children: [
+              "See all ",
+              product.reviewCount,
+              " reviews"
+            ] }) })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-8 lg:col-span-7 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "sr-only", children: "Images" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8", children: product.images.map((image) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "img",
+          {
+            src: image.imageSrc,
+            alt: image.imageAlt,
+            className: classNames(
+              image.primary ? "lg:col-span-2 lg:row-span-2" : "hidden lg:block",
+              "rounded-lg"
+            )
+          },
+          image.id
+        )) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-8 lg:col-span-5", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("form", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-sm font-medium text-gray-900", children: "Variants" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_react5.RadioGroup, { value: selectedColor, onChange: setSelectedColor, className: "mt-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_react5.RadioGroup.Label, { className: "sr-only", children: " Choose a color " }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex items-center space-x-3", children: product.colors.map((color) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+                import_react5.RadioGroup.Option,
+                {
+                  value: color,
+                  className: ({ active, checked }) => classNames(
+                    color.selectedColor,
+                    active && checked ? "ring ring-offset-1" : "",
+                    !active && checked ? "ring-2" : "",
+                    "-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none"
+                  ),
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_react5.RadioGroup.Label, { as: "span", className: "sr-only", children: [
+                      " ",
+                      color.name,
+                      " "
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                      "span",
+                      {
+                        "aria-hidden": "true",
+                        className: classNames(
+                          color.bgColor,
+                          "h-8 w-8 border border-black border-opacity-10 rounded-full"
+                        )
+                      }
+                    )
+                  ]
+                },
+                color.name
+              )) })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-8", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center justify-between", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-sm font-medium text-gray-900", children: "Available Options" }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: "#", className: "text-sm font-medium text-indigo-600 hover:text-indigo-500", children: "See options chart" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_react5.RadioGroup, { value: selectedSize, onChange: setSelectedSize, className: "mt-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_react5.RadioGroup.Label, { className: "sr-only", children: " Choose a size " }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "grid grid-cols-3 gap-3 sm:grid-cols-6", children: product.sizes.map((size) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                import_react5.RadioGroup.Option,
+                {
+                  value: size,
+                  className: ({ active, checked }) => classNames(
+                    size.inStock ? "cursor-pointer focus:outline-none" : "opacity-25 cursor-not-allowed",
+                    active ? "ring-2 ring-offset-2 ring-indigo-500" : "",
+                    checked ? "bg-indigo-600 border-transparent text-white hover:bg-indigo-700" : "bg-white border-gray-200 text-gray-900 hover:bg-gray-50",
+                    "border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1"
+                  ),
+                  disabled: !size.inStock,
+                  children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_react5.RadioGroup.Label, { as: "span", children: size.name })
+                },
+                size.name
+              )) })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+            "button",
+            {
+              type: "submit",
+              className: "mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+              children: "Contact"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-10", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-sm font-medium text-gray-900", children: "Description" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+            "div",
+            {
+              className: "prose prose-sm mt-4 text-gray-500",
+              dangerouslySetInnerHTML: { __html: product.description }
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-8 border-t border-gray-200 pt-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-sm font-medium text-gray-900", children: "Fabric & Care" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "prose prose-sm mt-4 text-gray-500", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { role: "list", children: product.details.map((item) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: item }, item)) }) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("section", { "aria-labelledby": "policies-heading", className: "mt-10", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { id: "policies-heading", className: "sr-only", children: "Our Policies" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("dl", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2", children: policies.map((policy) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "rounded-lg border border-gray-200 bg-gray-50 p-6 text-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("dt", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(policy.icon, { className: "mx-auto h-6 w-6 flex-shrink-0 text-gray-400", "aria-hidden": "true" }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "mt-4 text-sm font-medium text-gray-900", children: policy.name })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("dd", { className: "mt-1 text-sm text-gray-500", children: policy.description })
+          ] }, policy.name)) })
+        ] })
+      ] })
+    ] }) })
+  ] }) });
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "cc506a5d", entry: { module: "/build/entry.client-NFEMGWEF.js", imports: ["/build/_shared/chunk-GJSIWBVP.js", "/build/_shared/chunk-LMXH6R3J.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KKIYDW2W.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-KXSHSSIH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/newroute/index": { id: "routes/newroute/index", parentId: "root", path: "newroute", index: !0, caseSensitive: void 0, module: "/build/routes/newroute/index-CRUNKCRI.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/index": { id: "routes/reviews/index", parentId: "root", path: "reviews", index: !0, caseSensitive: void 0, module: "/build/routes/reviews/index-NIG67ADA.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-CC506A5D.js" };
+var assets_manifest_default = { version: "5d6cefb9", entry: { module: "/build/entry.client-NFEMGWEF.js", imports: ["/build/_shared/chunk-GJSIWBVP.js", "/build/_shared/chunk-LMXH6R3J.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-R5AWXPMQ.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-WYVDLC7N.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/newroute/index": { id: "routes/newroute/index", parentId: "root", path: "newroute", index: !0, caseSensitive: void 0, module: "/build/routes/newroute/index-CRUNKCRI.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/index": { id: "routes/reviews/index", parentId: "root", path: "reviews", index: !0, caseSensitive: void 0, module: "/build/routes/reviews/index-NIG67ADA.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-5D6CEFB9.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

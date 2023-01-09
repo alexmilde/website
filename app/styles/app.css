@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Sofia Sans Semi Condensed Light";
+    src: url('/fonts/SofiaSansSemiCondensed-Light.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: "Sofia Sans Semi Condensed Medium";
+    src: url('/fonts/SofiaSansSemiCondensed-Medium.ttf') format('truetype');
+}
+
