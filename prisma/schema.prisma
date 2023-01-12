@@ -7,8 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model reviews {
+model Review {
   id   Int    @id @default(autoincrement())
   text String @db.Text
   name String @db.Text
+  rating Int @db.Int
+  published Boolean @db.TinyInt @default(false)
 }

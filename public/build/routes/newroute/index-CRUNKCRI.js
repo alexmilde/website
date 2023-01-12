@@ -1,1 +1,0 @@
-import{b as t}from"/build/_shared/chunk-LMXH6R3J.js";import{c as l}from"/build/_shared/chunk-Q3IECNXJ.js";var e=l(t());function f(){return(0,e.jsx)("div",{className:"flex h-full min-h-screen flex-col",children:(0,e.jsx)("h1",{children:"Hallo Unterseite"})})}export{f as default};
