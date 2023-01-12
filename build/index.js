@@ -513,7 +513,7 @@ __export(login_exports, {
 var import_react5 = require("@remix-run/react"), import_node3 = require("@remix-run/node");
 
 // app/utils/session.server.ts
-var import_node2 = require("@remix-run/node"), sessionSecret = process.env.SESSION_SECRET;
+var import_bcryptjs = __toESM(require("bcryptjs")), import_node2 = require("@remix-run/node"), sessionSecret = process.env.SESSION_SECRET;
 if (!sessionSecret)
   throw new Error("SESSION_SECRET must be set");
 var storage = (0, import_node2.createCookieSessionStorage)({
@@ -527,7 +527,11 @@ var storage = (0, import_node2.createCookieSessionStorage)({
   }
 });
 async function login(password) {
-  return password === "letmein";
+  let hashedPass = await import_bcryptjs.default.hash("xxx", 10);
+  return await import_bcryptjs.default.compare(
+    password,
+    "$2a$10$EKTDiaOyakLOJmIpsnGVY.USp0N7SIJkIezSpzC2qGshjAqDZ/tZe"
+  );
 }
 function getUserSession(request) {
   return storage.getSession(request.headers.get("Cookie"));

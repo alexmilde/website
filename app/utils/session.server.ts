@@ -25,17 +25,12 @@ const storage = createCookieSessionStorage({
 });
 
 export async function login(password: string) {
-/*
-    const hashedPass = await bcrypt.hash('letmein',10)
-    console.log(hashedPass)
+    const hashedPass = await bcrypt.hash('xxx', 10)
     const isCorrectPassword = await bcrypt.compare(
         password,
-        'letmein'
+        '$2a$10$EKTDiaOyakLOJmIpsnGVY.USp0N7SIJkIezSpzC2qGshjAqDZ/tZe'
     );
-*/
-    let isCorrectPassword = password === 'letmein';
-
-   return isCorrectPassword;
+    return isCorrectPassword;
 }
 
 function getUserSession(request: Request) {
