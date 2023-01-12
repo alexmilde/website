@@ -519,7 +519,6 @@ if (!sessionSecret)
 var storage = (0, import_node2.createCookieSessionStorage)({
   cookie: {
     name: "RJ_session",
-    secure: !0,
     secrets: [sessionSecret],
     sameSite: "lax",
     path: "/",
