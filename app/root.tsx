@@ -6,9 +6,10 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
+  ScrollRestoration, useLoaderData,
 } from "@remix-run/react";
 import { useLocation } from "react-router-dom";
+import {getReviews, getReviewsPublishedCount} from "~/models/review.server";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 
@@ -21,6 +22,12 @@ import {
 } from "@heroicons/react/24/outline";
 import Gallery from "./components.tsx/gallery";
 import Rating from "./components.tsx/rating";
+import {json, LoaderArgs} from "@remix-run/node";
+
+export async function loader({ request }: LoaderArgs) {
+  const reviewsPublishedCount = await getReviewsPublishedCount();
+  return {reviewsPublishedCount};
+}
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -36,7 +43,6 @@ const product = {
   name: "Alex Milde",
   price: "--- €",
   rating: 3.9,
-  reviewCount: 5,
   href: "#",
   breadcrumbs: [
     { id: 1, name: "Developer", href: "#" },
@@ -107,6 +113,7 @@ function classNames(...classes : any) {
 }
 
 export default function App() {
+  const data = useLoaderData<typeof loader>();
   const location = useLocation();
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
@@ -186,7 +193,7 @@ export default function App() {
                         to="/reviews"
                         className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                       >
-                        See all {product.reviewCount} reviews
+                        See all {data.reviewsPublishedCount} reviews
                       </Link>
                     </div>
                   </div>

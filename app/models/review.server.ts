@@ -4,6 +4,14 @@ type ReviewCreate = Omit<Review, "id" | "published">
 
 const prisma = new PrismaClient();
 
+export function getReviewsPublishedCount() {
+    return prisma.review.count({
+        where: {
+            published: true
+        }
+    });
+}
+
 export function getReviews() {
     return prisma.review.findMany();
 }
