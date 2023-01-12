@@ -67,9 +67,55 @@ var root_exports = {};
 __export(root_exports, {
   default: () => App,
   links: () => links,
+  loader: () => loader,
   meta: () => meta
 });
 var import_react2 = require("@remix-run/react"), import_react_router_dom = require("react-router-dom");
+
+// app/models/review.server.ts
+var import_client = require("@prisma/client"), import_nodemailer = __toESM(require("nodemailer")), prisma = new import_client.PrismaClient();
+function getReviewsPublishedCount() {
+  return prisma.review.count({
+    where: {
+      published: !0
+    }
+  });
+}
+function getReviewsRatingAverage() {
+  return prisma.review.aggregate({
+    where: {
+      published: !0
+    },
+    _avg: {
+      rating: !0
+    }
+  });
+}
+function getReviews() {
+  return prisma.review.findMany({
+    where: {
+      published: !0
+    }
+  });
+}
+async function createReview(review) {
+  let info = await import_nodemailer.default.createTransport({
+    host: "smtp.ionos.de",
+    port: 465,
+    secure: !0,
+    auth: {
+      user: "drop@finekost.com",
+      pass: process.env.MAIL_PASSWORD
+    }
+  }).sendMail({
+    from: "drop@finekost.com",
+    to: "alex@finekost.com",
+    subject: "New Review recieved",
+    text: `${review.name} [${review.rating}] ${review.text}`,
+    html: `${review.name} [${review.rating}] ${review.text}`
+  });
+  return prisma.review.create({ data: review });
+}
 
 // app/styles/tailwind.css
 var tailwind_default = "/build/_assets/tailwind-YCB2XYLN.css";
@@ -123,15 +169,18 @@ function Rating(props) {
 }
 
 // app/root.tsx
-var import_jsx_runtime4 = require("react/jsx-runtime"), links = () => [{ rel: "stylesheet", href: tailwind_default }], meta = () => ({
+var import_jsx_runtime4 = require("react/jsx-runtime");
+async function loader({ request }) {
+  let reviewsRatingAverage = (await getReviewsRatingAverage())._avg.rating;
+  return { reviewsPublishedCount: await getReviewsPublishedCount(), reviewsRatingAverage };
+}
+var links = () => [{ rel: "stylesheet", href: tailwind_default }], meta = () => ({
   charset: "utf-8",
   title: "Alex Milde / Fullstack Developer",
   viewport: "width=device-width,initial-scale=1"
 }), product = {
   name: "Alex Milde",
   price: "--- \u20AC",
-  rating: 3.9,
-  reviewCount: 5,
   href: "#",
   breadcrumbs: [
     { id: 1, name: "Developer", href: "#" },
@@ -199,7 +248,7 @@ function classNames3(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 function App() {
-  let location = (0, import_react_router_dom.useLocation)(), [selectedColor, setSelectedColor] = (0, import_react3.useState)(product.colors[0]), [selectedSize, setSelectedSize] = (0, import_react3.useState)(product.sizes[2]);
+  let data = (0, import_react2.useLoaderData)(), location = (0, import_react_router_dom.useLocation)(), [selectedColor, setSelectedColor] = (0, import_react3.useState)(product.colors[0]), [selectedSize, setSelectedSize] = (0, import_react3.useState)(product.sizes[2]);
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("html", { lang: "en", className: "h-full", children: [
     /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("head", { children: [
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_react2.Meta, {}),
@@ -260,7 +309,7 @@ function App() {
             /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "mt-4", children: [
               /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "sr-only", children: "Reviews" }),
               /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Rating, { rating: product.rating }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Rating, { rating: data.reviewsRatingAverage }),
                 /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                   "div",
                   {
@@ -276,7 +325,7 @@ function App() {
                     className: "text-sm font-medium text-indigo-600 hover:text-indigo-500",
                     children: [
                       "See all ",
-                      product.reviewCount,
+                      data.reviewsPublishedCount,
                       " reviews"
                     ]
                   }
@@ -440,9 +489,9 @@ function App() {
 // app/routes/healthcheck.tsx
 var healthcheck_exports = {};
 __export(healthcheck_exports, {
-  loader: () => loader
+  loader: () => loader2
 });
-async function loader({ request }) {
+async function loader2({ request }) {
   let host = request.headers.get("X-Forwarded-Host") ?? request.headers.get("host");
   try {
     let url = new URL("/", `http://${host}`);
@@ -459,23 +508,12 @@ async function loader({ request }) {
 var reviews_exports = {};
 __export(reviews_exports, {
   default: () => Reviews,
-  loader: () => loader2
+  loader: () => loader3
 });
 var import_node2 = require("@remix-run/node"), import_react5 = require("@remix-run/react");
 var import_solid2 = require("@heroicons/react/20/solid");
-
-// app/models/review.server.ts
-var import_client = require("@prisma/client"), prisma = new import_client.PrismaClient();
-function getReviews() {
-  return prisma.review.findMany();
-}
-async function createReview(review) {
-  return prisma.review.create({ data: review });
-}
-
-// app/routes/reviews.tsx
 var import_jsx_runtime5 = require("react/jsx-runtime");
-async function loader2({ request }) {
+async function loader3({ request }) {
   let noteListItems = await getReviews();
   return (0, import_node2.json)({ noteListItems });
 }
@@ -520,7 +558,6 @@ __export(write_exports, {
 });
 var import_react6 = require("@remix-run/react"), import_node3 = require("@remix-run/node");
 var import_tiny_invariant = __toESM(require("tiny-invariant")), import_solid3 = require("@heroicons/react/20/solid"), import_react7 = require("react"), import_jsx_runtime6 = require("react/jsx-runtime"), action = async ({ request }) => {
-  await new Promise((res) => setTimeout(res, 1e3));
   let formData = await request.formData(), name = formData.get("name"), text = formData.get("text"), rating = Number(formData.get("rating")), errors = {
     name: name ? null : "Name is required",
     text: text ? null : "text is required",
@@ -606,7 +643,7 @@ function NewPost() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "49363dc2", entry: { module: "/build/entry.client-MJHRPX3A.js", imports: ["/build/_shared/chunk-HGSZF5WF.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-3YCM3X3D.js", imports: ["/build/_shared/chunk-UQ2AYWHW.js", "/build/_shared/chunk-X2TMNKAW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-O4BZKZ4I.js", imports: ["/build/_shared/chunk-RZ4I4RZZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-QJQ7BIM5.js", imports: ["/build/_shared/chunk-X2TMNKAW.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-49363DC2.js" };
+var assets_manifest_default = { version: "f3054338", entry: { module: "/build/entry.client-MJHRPX3A.js", imports: ["/build/_shared/chunk-HGSZF5WF.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-G2UKS3KE.js", imports: ["/build/_shared/chunk-PBD6MDT7.js", "/build/_shared/chunk-VLKDSBMX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-PAC7JGP5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-BRZLHZPB.js", imports: ["/build/_shared/chunk-VLKDSBMX.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-F3054338.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

@@ -119,8 +119,6 @@ export default function App() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
-  console.log(data);
-
   return (
     <html lang="en" className="h-full">
       <head>
