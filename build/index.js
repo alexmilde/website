@@ -605,8 +605,29 @@ function NewPost() {
   ] });
 }
 
+// app/routes/test.tsx
+var test_exports = {};
+__export(test_exports, {
+  default: () => Reviews2,
+  loader: () => loader3
+});
+var import_node4 = require("@remix-run/node"), import_react8 = require("@remix-run/react");
+var import_jsx_runtime7 = require("react/jsx-runtime");
+async function loader3({ request }) {
+  let noteListItems = await getReviews();
+  return (0, import_node4.json)({ noteListItems });
+}
+function Reviews2() {
+  let data = (0, import_react8.useLoaderData)();
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "w-2/3", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "mt-4", children: data.noteListItems.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "p-4", children: "No notes yet" }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { children: data.noteListItems.map((review) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { className: "mb-4 text-sm font-medium text-gray-900", children: review.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Rating, { rating: review.rating }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "prose prose-sm mt-4 text-gray-500", children: review.text })
+  ] }, review.id)) }) }) });
+}
+
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "3de56595", entry: { module: "/build/entry.client-MJHRPX3A.js", imports: ["/build/_shared/chunk-HGSZF5WF.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-6ZVWPWNH.js", imports: ["/build/_shared/chunk-UQ2AYWHW.js", "/build/_shared/chunk-X2TMNKAW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-O4BZKZ4I.js", imports: ["/build/_shared/chunk-RZ4I4RZZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-QJQ7BIM5.js", imports: ["/build/_shared/chunk-X2TMNKAW.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-3DE56595.js" };
+var assets_manifest_default = { version: "9cff02ac", entry: { module: "/build/entry.client-MJHRPX3A.js", imports: ["/build/_shared/chunk-HGSZF5WF.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-6ZVWPWNH.js", imports: ["/build/_shared/chunk-UQ2AYWHW.js", "/build/_shared/chunk-X2TMNKAW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-O4BZKZ4I.js", imports: ["/build/_shared/chunk-RZ4I4RZZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-QJQ7BIM5.js", imports: ["/build/_shared/chunk-X2TMNKAW.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/test": { id: "routes/test", parentId: "root", path: "test", index: void 0, caseSensitive: void 0, module: "/build/routes/test-GI6MJA54.js", imports: ["/build/_shared/chunk-RZ4I4RZZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-9CFF02AC.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -641,6 +662,14 @@ var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath 
     index: void 0,
     caseSensitive: void 0,
     module: write_exports
+  },
+  "routes/test": {
+    id: "routes/test",
+    parentId: "root",
+    path: "test",
+    index: void 0,
+    caseSensitive: void 0,
+    module: test_exports
   }
 };
 // Annotate the CommonJS export names for ESM import in node:
