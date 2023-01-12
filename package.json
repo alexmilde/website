@@ -17,7 +17,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc -b",
     "validate": "run-p test lint typecheck check",
-    "server": "nodemon server.js"
+    "server": "nodemon node_modules/@remix-run/serve/dist/cli.js build"
   },
   "prettier": {},
   "eslintIgnore": [
