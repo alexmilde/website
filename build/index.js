@@ -125,13 +125,13 @@ function Rating(props) {
 // app/root.tsx
 var import_jsx_runtime4 = require("react/jsx-runtime"), links = () => [{ rel: "stylesheet", href: tailwind_default }], meta = () => ({
   charset: "utf-8",
-  title: "Remix Notes",
+  title: "Alex Milde / Fullstack Developer",
   viewport: "width=device-width,initial-scale=1"
 }), product = {
   name: "Alex Milde",
   price: "--- \u20AC",
   rating: 3.9,
-  reviewCount: 4,
+  reviewCount: 5,
   href: "#",
   breadcrumbs: [
     { id: 1, name: "Developer", href: "#" },
@@ -606,7 +606,7 @@ function NewPost() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "3de56595", entry: { module: "/build/entry.client-MJHRPX3A.js", imports: ["/build/_shared/chunk-HGSZF5WF.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-6ZVWPWNH.js", imports: ["/build/_shared/chunk-UQ2AYWHW.js", "/build/_shared/chunk-X2TMNKAW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-O4BZKZ4I.js", imports: ["/build/_shared/chunk-RZ4I4RZZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-QJQ7BIM5.js", imports: ["/build/_shared/chunk-X2TMNKAW.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-3DE56595.js" };
+var assets_manifest_default = { version: "49363dc2", entry: { module: "/build/entry.client-MJHRPX3A.js", imports: ["/build/_shared/chunk-HGSZF5WF.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-3YCM3X3D.js", imports: ["/build/_shared/chunk-UQ2AYWHW.js", "/build/_shared/chunk-X2TMNKAW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-O4BZKZ4I.js", imports: ["/build/_shared/chunk-RZ4I4RZZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-QJQ7BIM5.js", imports: ["/build/_shared/chunk-X2TMNKAW.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-49363DC2.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

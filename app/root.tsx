@@ -28,7 +28,7 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Alex Milde / Developer",
+  title: "Alex Milde / Fullstack Developer",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -36,7 +36,7 @@ const product = {
   name: "Alex Milde",
   price: "--- €",
   rating: 3.9,
-  reviewCount: 4,
+  reviewCount: 5,
   href: "#",
   breadcrumbs: [
     { id: 1, name: "Developer", href: "#" },
