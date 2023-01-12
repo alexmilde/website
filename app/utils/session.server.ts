@@ -28,11 +28,12 @@ export async function login(password: string) {
 /*
     const hashedPass = await bcrypt.hash('letmein',10)
     console.log(hashedPass)
-*/
     const isCorrectPassword = await bcrypt.compare(
         password,
         'letmein'
     );
+*/
+    let isCorrectPassword = password === 'letmein';
 
    return isCorrectPassword;
 }
