@@ -42,7 +42,7 @@ export const meta: MetaFunction = () => ({
 });
 
 const product = {
-  name: "Alex Milde",
+  name: "Alex Milde.",
   price: "--- €",
   href: "#",
   breadcrumbs: [

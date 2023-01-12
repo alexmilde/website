@@ -179,7 +179,7 @@ var links = () => [{ rel: "stylesheet", href: tailwind_default }], meta = () => 
   title: "Alex Milde / Fullstack Developer",
   viewport: "width=device-width,initial-scale=1"
 }), product = {
-  name: "Alex Milde",
+  name: "Alex Milde.",
   price: "--- \u20AC",
   href: "#",
   breadcrumbs: [
@@ -528,10 +528,9 @@ var storage = (0, import_node2.createCookieSessionStorage)({
   }
 });
 async function login(password) {
-  let hashedPass = await import_bcryptjs.default.hash("letmein", 10);
-  return console.log(hashedPass), await import_bcryptjs.default.compare(
+  return await import_bcryptjs.default.compare(
     password,
-    hashedPass
+    "letmein"
   );
 }
 function getUserSession(request) {
@@ -735,7 +734,7 @@ function Login2() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "5d255e80", entry: { module: "/build/entry.client-OGAZTCEX.js", imports: ["/build/_shared/chunk-JKKITEQK.js", "/build/_shared/chunk-LMXH6R3J.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-JQGIAHLD.js", imports: ["/build/_shared/chunk-L42U4QZD.js", "/build/_shared/chunk-I2PN4Q7O.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/admin": { id: "routes/admin", parentId: "root", path: "admin", index: void 0, caseSensitive: void 0, module: "/build/routes/admin-GPCUZ554.js", imports: ["/build/_shared/chunk-QVTEGN3F.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login/index": { id: "routes/login/index", parentId: "root", path: "login", index: !0, caseSensitive: void 0, module: "/build/routes/login/index-5FTXE4U4.js", imports: ["/build/_shared/chunk-QVTEGN3F.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-LX4COI2W.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-DMHXE4OL.js", imports: ["/build/_shared/chunk-I2PN4Q7O.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-5D255E80.js" };
+var assets_manifest_default = { version: "1ffa5815", entry: { module: "/build/entry.client-OGAZTCEX.js", imports: ["/build/_shared/chunk-JKKITEQK.js", "/build/_shared/chunk-LMXH6R3J.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-MEXSTG7S.js", imports: ["/build/_shared/chunk-L42U4QZD.js", "/build/_shared/chunk-I2PN4Q7O.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/admin": { id: "routes/admin", parentId: "root", path: "admin", index: void 0, caseSensitive: void 0, module: "/build/routes/admin-GPCUZ554.js", imports: ["/build/_shared/chunk-QVTEGN3F.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login/index": { id: "routes/login/index", parentId: "root", path: "login", index: !0, caseSensitive: void 0, module: "/build/routes/login/index-5FTXE4U4.js", imports: ["/build/_shared/chunk-QVTEGN3F.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-LX4COI2W.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-DMHXE4OL.js", imports: ["/build/_shared/chunk-I2PN4Q7O.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-1FFA5815.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
