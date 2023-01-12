@@ -118,7 +118,7 @@ async function createReview(review) {
 }
 
 // app/styles/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-YCB2XYLN.css";
+var tailwind_default = "/build/_assets/tailwind-DUGCVKHO.css";
 
 // app/root.tsx
 var import_react3 = require("react"), import_react4 = require("@headlessui/react"), import_outline = require("@heroicons/react/24/outline");
@@ -504,47 +504,122 @@ async function loader2({ request }) {
   }
 }
 
+// app/routes/login/index.tsx
+var login_exports = {};
+__export(login_exports, {
+  action: () => action,
+  default: () => Login
+});
+var import_react5 = require("@remix-run/react"), import_node3 = require("@remix-run/node");
+
+// app/utils/session.server.ts
+var import_bcryptjs = __toESM(require("bcryptjs")), import_node2 = require("@remix-run/node"), sessionSecret = process.env.SESSION_SECRET;
+if (!sessionSecret)
+  throw new Error("SESSION_SECRET must be set");
+var storage = (0, import_node2.createCookieSessionStorage)({
+  cookie: {
+    name: "RJ_session",
+    secure: !0,
+    secrets: [sessionSecret],
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 30,
+    httpOnly: !0
+  }
+});
+async function login(password) {
+  return await import_bcryptjs.default.compare(
+    password,
+    "$2a$10$YPxM8tQq47D0mEOTzshdGefOre9uQc7tiqc/pFNKZgzeyoJAjI9fe"
+  );
+}
+function getUserSession(request) {
+  return storage.getSession(request.headers.get("Cookie"));
+}
+async function getUserId(request) {
+  let userId = (await getUserSession(request)).get("userId");
+  return !userId || typeof userId != "string" ? null : userId;
+}
+async function createUserSession(userId, redirectTo) {
+  console.log("create session");
+  let session = await storage.getSession();
+  return session.set("userId", userId), (0, import_node2.redirect)(redirectTo, {
+    headers: {
+      "Set-Cookie": await storage.commitSession(session)
+    }
+  });
+}
+
+// app/routes/login/index.tsx
+var import_jsx_runtime5 = require("react/jsx-runtime"), action = async ({ request }) => {
+  let password = (await request.formData()).get("password");
+  return await login(password) ? createUserSession("user", "../admin") : (0, import_node3.redirect)("");
+};
+function Login() {
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { children: "Login" }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_react5.Form, { method: "post", className: "mb-8", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        "input",
+        {
+          type: "password",
+          name: "password",
+          required: !0
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        "button",
+        {
+          type: "submit",
+          className: "rounded bg-indigo-600 py-2 px-4 text-white hover:bg-indigo-700",
+          children: "Send"
+        }
+      )
+    ] })
+  ] });
+}
+
 // app/routes/reviews.tsx
 var reviews_exports = {};
 __export(reviews_exports, {
   default: () => Reviews,
   loader: () => loader3
 });
-var import_node2 = require("@remix-run/node"), import_react5 = require("@remix-run/react");
+var import_node4 = require("@remix-run/node"), import_react6 = require("@remix-run/react");
 var import_solid2 = require("@heroicons/react/20/solid");
-var import_jsx_runtime5 = require("react/jsx-runtime");
+var import_jsx_runtime6 = require("react/jsx-runtime");
 async function loader3({ request }) {
   let noteListItems = await getReviews();
-  return (0, import_node2.json)({ noteListItems });
+  return (0, import_node4.json)({ noteListItems });
 }
 function Reviews() {
-  let data = (0, import_react5.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "w-2/3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex justify-between", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-        import_react5.Link,
+  let data = (0, import_react6.useLoaderData)();
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "w-2/3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+        import_react6.Link,
         {
           to: "write",
           className: "text-sm font-medium text-indigo-600 hover:text-indigo-500",
           children: "Write a review"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-        import_react5.Link,
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("br", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+        import_react6.Link,
         {
           to: "/",
           className: "text-sm font-medium text-indigo-600 hover:text-indigo-500",
-          children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_solid2.XCircleIcon, { className: "h-5 w-5 flex-shrink-0", "aria-hidden": "true" })
+          children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_solid2.XCircleIcon, { className: "h-5 w-5 flex-shrink-0", "aria-hidden": "true" })
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_react5.Outlet, {}),
-      data.noteListItems.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "p-4", children: "No notes yet" }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: data.noteListItems.map((review) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "mb-4 text-sm font-medium text-gray-900", children: review.name }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Rating, { rating: review.rating }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "prose prose-sm mt-4 text-gray-500", children: review.text })
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mt-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_react6.Outlet, {}),
+      data.noteListItems.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "p-4", children: "No notes yet" }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { children: data.noteListItems.map((review) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "mb-4 text-sm font-medium text-gray-900", children: review.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Rating, { rating: review.rating }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "prose prose-sm mt-4 text-gray-500", children: review.text })
       ] }, review.id)) })
     ] })
   ] });
@@ -553,25 +628,25 @@ function Reviews() {
 // app/routes/reviews/write.tsx
 var write_exports = {};
 __export(write_exports, {
-  action: () => action,
+  action: () => action2,
   default: () => NewPost
 });
-var import_react6 = require("@remix-run/react"), import_node3 = require("@remix-run/node");
-var import_tiny_invariant = __toESM(require("tiny-invariant")), import_solid3 = require("@heroicons/react/20/solid"), import_react7 = require("react"), import_jsx_runtime6 = require("react/jsx-runtime"), action = async ({ request }) => {
+var import_react7 = require("@remix-run/react"), import_node5 = require("@remix-run/node");
+var import_tiny_invariant = __toESM(require("tiny-invariant")), import_solid3 = require("@heroicons/react/20/solid"), import_react8 = require("react"), import_jsx_runtime7 = require("react/jsx-runtime"), action2 = async ({ request }) => {
   let formData = await request.formData(), name = formData.get("name"), text = formData.get("text"), rating = Number(formData.get("rating")), errors = {
     name: name ? null : "Name is required",
     text: text ? null : "text is required",
     rating: rating ? null : "Rating is required"
   };
-  return Object.values(errors).some((errorMessage) => errorMessage) ? (0, import_node3.json)(errors) : ((0, import_tiny_invariant.default)(typeof name == "string", "name must be a string"), (0, import_tiny_invariant.default)(typeof text == "string", "text must be a string"), (0, import_tiny_invariant.default)(typeof rating == "number", "rating must be a number"), await createReview({ name, text, rating }), (0, import_node3.redirect)("../"));
+  return Object.values(errors).some((errorMessage) => errorMessage) ? (0, import_node5.json)(errors) : ((0, import_tiny_invariant.default)(typeof name == "string", "name must be a string"), (0, import_tiny_invariant.default)(typeof text == "string", "text must be a string"), (0, import_tiny_invariant.default)(typeof rating == "number", "rating must be a number"), await createReview({ name, text, rating }), (0, import_node5.redirect)("../"));
 }, inputClassName = "w-full border-b border-gray-500 px-2 py-1 text-base font-light invalid:border-black";
 function classNames4(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 function NewPost() {
-  let [rating, setRating] = (0, import_react7.useState)(3), errors = (0, import_react6.useActionData)(), transition = (0, import_react6.useTransition)(), isCreating = Boolean(transition.submission);
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_react6.Form, { method: "post", className: "mb-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+  let [rating, setRating] = (0, import_react8.useState)(3), errors = (0, import_react7.useActionData)(), transition = (0, import_react7.useTransition)(), isCreating = Boolean(transition.submission);
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_react7.Form, { method: "post", className: "mb-8", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
       "input",
       {
         type: "text",
@@ -581,13 +656,13 @@ function NewPost() {
         required: !0
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "my-4 flex", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-sm text-gray-700", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "sr-only", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "my-4 flex", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "text-sm text-gray-700", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { className: "sr-only", children: [
         rating,
         " out of 5 stars"
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "items-cente ml-1 flex", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "items-cente ml-1 flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
           "input",
           {
             type: "hidden",
@@ -596,7 +671,7 @@ function NewPost() {
             required: !0
           }
         ),
-        [0, 1, 2, 3, 4].map((ratingTemp) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+        [0, 1, 2, 3, 4].map((ratingTemp) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
           import_solid3.StarIcon,
           {
             className: classNames4(
@@ -610,7 +685,7 @@ function NewPost() {
         ))
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
       "textarea",
       {
         id: "text",
@@ -620,16 +695,16 @@ function NewPost() {
         required: !0
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "flex justify-between", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-        import_react6.Link,
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { className: "flex justify-between", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        import_react7.Link,
         {
           to: "../",
           className: "rounded bg-indigo-600 py-2 px-4 text-white hover:bg-indigo-700",
           children: "Cancel"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
         "button",
         {
           type: "submit",
@@ -642,8 +717,24 @@ function NewPost() {
   ] });
 }
 
+// app/routes/admin.tsx
+var admin_exports = {};
+__export(admin_exports, {
+  default: () => Login2,
+  loader: () => loader4
+});
+var import_node6 = require("@remix-run/node");
+var import_jsx_runtime8 = require("react/jsx-runtime"), loader4 = async ({ request }) => {
+  if (!await getUserId(request))
+    throw new Response("Unauthorized", { status: 401 });
+  return (0, import_node6.json)({});
+};
+function Login2() {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h1", { children: "admin" }) });
+}
+
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "f3054338", entry: { module: "/build/entry.client-MJHRPX3A.js", imports: ["/build/_shared/chunk-HGSZF5WF.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-G2UKS3KE.js", imports: ["/build/_shared/chunk-PBD6MDT7.js", "/build/_shared/chunk-VLKDSBMX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-PAC7JGP5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-BRZLHZPB.js", imports: ["/build/_shared/chunk-VLKDSBMX.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-F3054338.js" };
+var assets_manifest_default = { version: "3ac5e4d5", entry: { module: "/build/entry.client-OGAZTCEX.js", imports: ["/build/_shared/chunk-JKKITEQK.js", "/build/_shared/chunk-LMXH6R3J.js", "/build/_shared/chunk-Q3IECNXJ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-JQGIAHLD.js", imports: ["/build/_shared/chunk-L42U4QZD.js", "/build/_shared/chunk-I2PN4Q7O.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/admin": { id: "routes/admin", parentId: "root", path: "admin", index: void 0, caseSensitive: void 0, module: "/build/routes/admin-GPCUZ554.js", imports: ["/build/_shared/chunk-QVTEGN3F.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/healthcheck": { id: "routes/healthcheck", parentId: "root", path: "healthcheck", index: void 0, caseSensitive: void 0, module: "/build/routes/healthcheck-BQ2SXEZN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login/index": { id: "routes/login/index", parentId: "root", path: "login", index: !0, caseSensitive: void 0, module: "/build/routes/login/index-QRURFQYF.js", imports: ["/build/_shared/chunk-QVTEGN3F.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews": { id: "routes/reviews", parentId: "root", path: "reviews", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews-LX4COI2W.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/reviews/write": { id: "routes/reviews/write", parentId: "routes/reviews", path: "write", index: void 0, caseSensitive: void 0, module: "/build/routes/reviews/write-DMHXE4OL.js", imports: ["/build/_shared/chunk-I2PN4Q7O.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-3AC5E4D5.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -663,6 +754,14 @@ var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath 
     caseSensitive: void 0,
     module: healthcheck_exports
   },
+  "routes/login/index": {
+    id: "routes/login/index",
+    parentId: "root",
+    path: "login",
+    index: !0,
+    caseSensitive: void 0,
+    module: login_exports
+  },
   "routes/reviews": {
     id: "routes/reviews",
     parentId: "root",
@@ -678,6 +777,14 @@ var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath 
     index: void 0,
     caseSensitive: void 0,
     module: write_exports
+  },
+  "routes/admin": {
+    id: "routes/admin",
+    parentId: "root",
+    path: "admin",
+    index: void 0,
+    caseSensitive: void 0,
+    module: admin_exports
   }
 };
 // Annotate the CommonJS export names for ESM import in node:

@@ -1,0 +1,1 @@
+import{a as n}from"/build/_shared/chunk-QVTEGN3F.js";import{b as e}from"/build/_shared/chunk-LMXH6R3J.js";import{c as r}from"/build/_shared/chunk-Q3IECNXJ.js";var s=r(n()),o=r(e());function t(){return(0,o.jsx)("div",{className:"",children:(0,o.jsx)("h1",{children:"admin"})})}export{t as default};
