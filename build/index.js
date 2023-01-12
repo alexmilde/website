@@ -616,7 +616,7 @@ var import_node4 = require("@remix-run/node"), import_react8 = require("@remix-r
 // app/models/test.server.ts
 var import_client2 = require("@prisma/client"), prisma2 = new import_client2.PrismaClient();
 function getReviews2() {
-  return prisma2.test.findMany();
+  return console.log("get reviews"), prisma2.test.findMany();
 }
 
 // app/routes/test.tsx
