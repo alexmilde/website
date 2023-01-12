@@ -12,8 +12,24 @@ export function getReviewsPublishedCount() {
     });
 }
 
+
+export function getReviewsRatingAverage() {
+    return prisma.review.aggregate({
+        where: {
+            published: true
+        },
+        _avg: {
+            rating: true,
+        },
+    });
+}
+
 export function getReviews() {
-    return prisma.review.findMany();
+    return prisma.review.findMany({
+        where: {
+            published: true
+        }
+    });
 }
 
 export async function createReview(review: ReviewCreate) {

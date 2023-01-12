@@ -9,7 +9,7 @@ import {
   ScrollRestoration, useLoaderData,
 } from "@remix-run/react";
 import { useLocation } from "react-router-dom";
-import {getReviews, getReviewsPublishedCount} from "~/models/review.server";
+import {getReviews, getReviewsPublishedCount, getReviewsRatingAverage} from "~/models/review.server";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 
@@ -25,8 +25,10 @@ import Rating from "./components.tsx/rating";
 import {json, LoaderArgs} from "@remix-run/node";
 
 export async function loader({ request }: LoaderArgs) {
+  const reviewsRatingAverage = (await getReviewsRatingAverage())._avg.rating;
+  //const reviewsRatingAverage = reviewsRatingAverageRaw;
   const reviewsPublishedCount = await getReviewsPublishedCount();
-  return {reviewsPublishedCount};
+  return {reviewsPublishedCount, reviewsRatingAverage};
 }
 
 export const links: LinksFunction = () => {
@@ -42,7 +44,6 @@ export const meta: MetaFunction = () => ({
 const product = {
   name: "Alex Milde",
   price: "--- €",
-  rating: 3.9,
   href: "#",
   breadcrumbs: [
     { id: 1, name: "Developer", href: "#" },
@@ -118,6 +119,8 @@ export default function App() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
+  console.log(data);
+
   return (
     <html lang="en" className="h-full">
       <head>
@@ -180,7 +183,7 @@ export default function App() {
                 <div className="mt-4">
                   <h2 className="sr-only">Reviews</h2>
                   <div className="flex items-center">
-                    <Rating rating={product.rating}></Rating>
+                    <Rating rating={data.reviewsRatingAverage}></Rating>
 
                     <div
                       aria-hidden="true"
