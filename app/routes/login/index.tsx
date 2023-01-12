@@ -6,7 +6,7 @@ import {login, createUserSession} from "~/utils/session.server";
 export const action = async ({request}: ActionArgs) => {
 
     const formData = await request.formData();
-    const password = formData.get("password");
+    const password : any = formData.get("password");
 
     const loginResult = await login(password);
     if (!loginResult) {
