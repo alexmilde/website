@@ -35,7 +35,6 @@
     "@remix-run/server-runtime": "^1.9.0",
     "connect-livereload": "^0.6.1",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
     "isbot": "^3.6.3",
     "livereload": "^0.9.3",
     "prisma": "^4.8.0",

@@ -33,7 +33,7 @@ export const meta: MetaFunction = () => ({
 });
 
 const product = {
-  name: "Alex Milde.",
+  name: "Alex Milde",
   price: "--- €",
   rating: 3.9,
   reviewCount: 4,
@@ -102,7 +102,7 @@ const policies = [
   },
 ];
 
-function classNames(...classes) {
+function classNames(...classes : any) {
   return classes.filter(Boolean).join(" ");
 }
 

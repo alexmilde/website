@@ -14,8 +14,3 @@ model Review {
   rating Int @db.Int
   published Boolean @db.TinyInt @default(false)
 }
-
-model test {
-  id   Int    @id @default(autoincrement())
-  text String @db.Text
-}
