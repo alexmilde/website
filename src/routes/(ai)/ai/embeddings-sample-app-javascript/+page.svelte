@@ -133,10 +133,10 @@ console.log(id)
             <a
                 class="mt-4 flex items-center gap-x-2 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
                 aria-label="embeddings-and-query.zip"
-                href="https://github.com/alexmilde/website/tree/main/src/routes"
+                href="https://github.com/alexmilde/website/tree/main/src/routes/(ai)/ai/embeddings-sample-app-javascript"
             >
                 <Icon type={iconTypes.git}></Icon>
-                <span>Show this in github</span>
+                <span>Diese Seite auf Github</span>
             </a>
 
             <a

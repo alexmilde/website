@@ -16,6 +16,7 @@ export interface Teaser {
     headline: string
     copy: string
     links?: Array<Link>
+    hidemore?: boolean
 }
 
 export interface Detail extends Link {

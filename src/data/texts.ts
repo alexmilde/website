@@ -12,24 +12,46 @@ export const lastWork = {
     copy: `Dem wunderbaren Hamburger Modelabel <a class="underline" href="https://www.closed.com/">CLOSED</a> habe ich geholfen technical Debt abzubauen und eine Headless Commerce Architektur aufzubauen.`,
 }
 
-export const articleTeasers: Array<Teaser> = [
-    {
-        date: '21.12.2023',
-        slug: 'svelte-basics',
-        headline: 'Hallo Svelt(e) – Warum ich Fan bin',
-        copy: 'In letzter Zeit habe ich viel mit Svelte, und SvelteKit gearbeitet. Dafür gab es ein paar gute Gründe. ',
-        links: [
-            {
-                title: 'Code dieser Website',
-                url: 'https://github.com/alexmilde/website',
-            },
-        ],
-    },
-]
+const teaserSvelteBasics: Teaser = {
+    date: '21.12.2023',
+    slug: 'svelte-basics',
+    headline: 'Hallo Svelt(e) – Warum ich Fan bin',
+    copy: 'In letzter Zeit habe ich viel mit Svelte, und SvelteKit gearbeitet. Dafür gab es ein paar gute Gründe. ',
+    links: [
+        {
+            title: 'Code dieser Website',
+            url: 'https://github.com/alexmilde/website',
+        },
+    ],
+}
+
+const teaserAIBasicsEmbeddings: Teaser = {
+    date: '22.12.2023',
+    slug: 'embeddings-sample-app-javascript',
+    headline: 'KI Textsuche zum Selber testen',
+    copy: 'Eine Javascript Anwendung als Startpunkt für eine eigene KI Anwendung',
+    hidemore: true,
+    links: [
+        {
+            title: 'Ausprobieren',
+            url: '/ai/embeddings-sample-app-javascript',
+        },
+        {
+            title: 'Quelle: Langchain',
+            url: 'https://js.langchain.com/docs/integrations/text_embedding/transformers',
+        },
+        {
+            title: 'Code auf Github',
+            url: 'https://github.com/alexmilde/website/tree/main/src/routes/(ai)/ai/embeddings-sample-app-javascript',
+        },
+    ],
+}
+
+export const articleTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings, teaserSvelteBasics]
 
 export const articles: Array<Article> = [
     {
-        teaser: articleTeasers[0],
+        teaser: teaserSvelteBasics,
         content: [
             {
                 headline: 'Es fühlt sich elegant an',
@@ -98,11 +120,4 @@ export const articles: Array<Article> = [
     },
 ]
 
-export const aiTeasers: Array<Teaser> = [
-    {
-        date: '21.12.2023',
-        slug: 'embeddings-sample-app-javascript',
-        headline: 'KI Textsuche zum Selber testen',
-        copy: 'Eine Javascript Anwendung als Startpunkt für eine eigene KI Anwendung',
-    },
-]
+export const aiTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings]
