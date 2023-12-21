@@ -1,33 +1,24 @@
-/** @type {import('tailwindcss').Config}*/
+import typographyPlugin from '@tailwindcss/typography'
+import { type Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
-const plugin = require('tailwindcss/plugin')
-
-const config = {
-    content: ['./src/**/*.{html,js,svelte,ts}'],
-
-    theme: {
-        extend: {
-            fontFamily: {
-                bauhaus: [
-                    'Bauhaus',
-                    'ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-                ],
-            },
-        },
+export default {
+  content: ['./src/**/*.{js,jsx,svelte,ts,tsx}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: [...defaultTheme.fontFamily.sans],
+      },
+      fontWeight: {
+        bold: 500,
+        medium: 300
+      },
+      spacing: {
+        18: '4.5rem',
+        112: '28rem',
+        120: '30rem',
+      },
     },
-
-    plugins: [
-        plugin(function ({ addBase }) {
-            addBase({
-                '@font-face': {
-                    fontFamily: 'Bauhaus',
-                    fontStyle: 'normal',
-                    fontWeight: '400',
-                    src: 'url(/fonts/Bauhaus_.ttf)',
-                },
-            })
-        }),
-    ],
-}
-
-module.exports = config
+  },
+  plugins: [typographyPlugin],
+} satisfies Config

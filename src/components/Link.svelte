@@ -1,0 +1,32 @@
+<a
+    href={$$props.href}
+    {...$$restProps}
+    class="
+            px-10
+            pt-2
+            pb-1
+            inline-block
+            relative
+            text-base
+            font-bauhaus
+            text-[#FF017D]
+            overflow-hidden
+            border border-[#FF017D]
+            bg-white
+            hover:before:bg-[#FF017D]
+            transition-all
+            before:absolute
+            before:bottom-0
+            before:left-0
+            before:top-0
+            before:z-0
+            before:h-0
+            before:w-full
+            before:transition-all
+            before:duration-200
+            hover:text-white
+            hover:before:left-0
+            hover:before:h-full"
+>
+    <span class="relative z-10"><slot /></span>
+</a>
