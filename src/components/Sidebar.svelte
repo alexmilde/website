@@ -1,6 +1,5 @@
 <script lang="ts">
     export let target = 'desktop'
-
     const contact = 'Contact'
     const eMail = 'E-mail'
     const phone = 'Phone'

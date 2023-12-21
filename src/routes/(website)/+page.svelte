@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Teaser from '../components/Teaser.svelte'
-    import { articleTeasers } from '../data/texts'
-    import { getRandomInt } from '../commons/utils'
+    import Teaser from '../../components/Teaser.svelte'
+    import { articleTeasers, metaData } from '../../data/texts'
+    import { getRandomInt } from '../../commons/utils'
     const headlines = [
         'Maybe its a user error?',
         'We should refactor this.',
@@ -13,7 +13,18 @@
     const headline = headlines[getRandomInt(0, headlines.length - 1)]
 </script>
 
-<div class="lg:px-8">
+<svelte:head>
+    <title>{metaData.title}</title>
+    <meta name="description" content={metaData.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={metaData.title} />
+    <meta property="og:site_name" content={metaData.title} />
+    <meta property="og:description" content={metaData.description} />
+    <meta property="og:image" content={metaData.image} />
+    <meta property="og:url" content={metaData.url} />
+</svelte:head>
+
+<div class="hidden sm:block lg:px-8">
     <div class="lg:max-w-4xl">
         <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
             <h1 class="text-2xl font-bold leading-7 text-slate-900">{headline}</h1>
@@ -22,7 +33,7 @@
 </div>
 <div class="divide-y divide-slate-200 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
     {#each articleTeasers as articleTeaser}
-        <Teaser data={articleTeaser} />
+        <Teaser data={articleTeaser} prefix="articles" />
     {/each}
 
     <article class="py-5 sm:py-6">

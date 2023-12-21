@@ -1,5 +1,12 @@
 import type { Article, Teaser } from '../commons/types'
 
+export const metaData = {
+    title: 'Alex Milde | Fullstack developer',
+    description: 'Software engineer, Architect – Fullstack developer. I do nerd things.',
+    image: '/images/alex_milde.jpg',
+    url: 'https://alexmilde.de',
+}
+
 export const lastWork = {
     headline: 'Letzte Buchung',
     copy: `Dem wunderbaren Hamburger Modelabel <a class="underline" href="https://www.closed.com/">CLOSED</a> habe ich geholfen technical Debt abzubauen und eine Headless Commerce Architektur aufzubauen.`,
@@ -88,5 +95,14 @@ export const articles: Array<Article> = [
                 url: 'https://github.com/alexmilde/website',
             },
         ],
+    },
+]
+
+export const aiTeasers: Array<Teaser> = [
+    {
+        date: '21.12.2023',
+        slug: 'embeddings-sample-app-javascript',
+        headline: 'KI Textsuche zum Selber testen',
+        copy: 'Eine Javascript Anwendung als Startpunkt für eine eigene KI Anwendung',
     },
 ]
