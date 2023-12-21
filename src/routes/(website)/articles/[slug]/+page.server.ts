@@ -10,7 +10,7 @@ export const load: PageServerLoad = (async ({ params }) => {
         .shift()
 
     if (!slugs.includes(params.slug) || article === undefined) {
-        error(500)
+        throw error(500)
     }
 
     return { article }
