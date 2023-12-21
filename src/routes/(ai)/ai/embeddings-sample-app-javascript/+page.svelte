@@ -72,7 +72,7 @@ console.log(id)
 </svelte:head>
 
 <div class="mx-auto mb-10 px-4 sm:px-6 md:px-4 md:mr-10">
-    <form method="POST" action="?/evaluate" use:enhance={evaluate}>
+    <form method="POST" use:enhance={evaluate}>
         <div class="grid grid-cols-3 gap-4">
             <div>
                 <label for="document1" class="block text-sm font-bold leading-6 text-gray-900">Document 1</label>

@@ -1,4 +1,4 @@
-import type { PageServerLoad } from './$types'
+import type { Actions, PageServerLoad } from './$types'
 import { HuggingFaceTransformersEmbeddings } from 'langchain/embeddings/hf_transformers'
 import { MemoryVectorStore } from 'langchain/vectorstores/memory'
 
@@ -7,7 +7,7 @@ export const load: PageServerLoad = (async () => {
 }) satisfies PageServerLoad
 
 export const actions = {
-    evaluate: async ({ request }) => {
+    default: async ({ request }) => {
         const model = new HuggingFaceTransformersEmbeddings({
             modelName: 'Xenova/all-MiniLM-L6-v2',
         })
@@ -40,4 +40,4 @@ export const actions = {
 
         return { id: id }
     },
-}
+} satisfies Actions
