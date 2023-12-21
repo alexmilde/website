@@ -40,7 +40,7 @@
         <div class="lg:px-8">
             <div class="lg:max-w-4xl">
                 <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0 text-xs text-slate-400">
-                    Verantwortlich: Alexander Milde | Pattweg 24 | 32051 Herford | USt-IdNr. DE268126828
+                    Alexander Milde | Pattweg 24 | 32051 Herford | USt-IdNr. DE268126828
                 </div>
             </div>
         </div>
