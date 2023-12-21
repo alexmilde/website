@@ -47,7 +47,7 @@ const teaserAIBasicsEmbeddings: Teaser = {
     ],
 }
 
-export const articleTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings, teaserSvelteBasics]
+export const articleTeasers: Array<Teaser> = [teaserSvelteBasics]
 
 export const articles: Array<Article> = [
     {
@@ -120,4 +120,4 @@ export const articles: Array<Article> = [
     },
 ]
 
-export const aiTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings]
+export const aiTeasers: Array<Teaser> = []
