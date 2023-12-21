@@ -8,6 +8,8 @@ export const load: PageServerLoad = (async () => {
 
 export const actions = {
     default: async ({ request }) => {
+        return { id: 1 }
+
         const model = new HuggingFaceTransformersEmbeddings({
             modelName: 'Xenova/all-MiniLM-L6-v2',
         })
