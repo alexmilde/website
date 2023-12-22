@@ -20,8 +20,12 @@
 
     const vectorStore = new MemoryVectorStore(new HuggingFaceTransformersEmbeddings())
 
+    let initialised = false
+
     onMount(async () => {
         await refreshEmbeddingsAndStore()
+        console.log('init done')
+        initialised = true
     })
 
     const refreshEmbeddingsAndStore = async () => {
@@ -54,75 +58,78 @@
     }
 </script>
 
-<div class="mx-auto my-10 px-4 sm:px-6 md:px-4 md:mr-10">
-    <h2 class="mt-2 text-lg font-bold text-slate-900">Anleitung</h2>
-    <p class="mt-1 text-base leading-7 text-slate-700">
-        Gib beliebige Texte in die drei Textfelder ein.<br />
-        Anschließend eine beliebige Suchphrase wählen und „Suchen“<br />
-        Das ähnlichste Textfeld wird <b>Grün</b> markiert.
-    </p>
-    <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div>
-            <label for="document1" class="block text-sm font-bold leading-6 text-gray-900">Document 1</label>
-            <div class="mt-2">
-                <textarea
-                    bind:value={document1Text}
-                    on:blur={refreshEmbeddingsAndStore}
-                    class="{gray} {styleIsSimilar(1, idSimilar)}"
-                    name="document1"
-                />
+<div class=" mx-auto my-10 px-4 sm:px-6 md:px-4 md:mr-10">
+    <h2 class="text-right mt-2 text-lg font-bold text-slate-900">{initialised ? '.' : 'Loading'}</h2>
+    <div class={initialised ? '' : 'pointer-events-none opacity-30'}>
+        <h2 class="mt-2 text-lg font-bold text-slate-900">Anleitung</h2>
+        <p class="mt-1 text-base leading-7 text-slate-700">
+            Gib beliebige Texte in die drei Textfelder ein.<br />
+            Anschließend eine beliebige Suchphrase wählen und „Suchen“<br />
+            Das ähnlichste Textfeld wird <b>Grün</b> markiert.
+        </p>
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+                <div class="block text-sm font-bold leading-6 text-gray-900">Document 1</div>
+                <div class="mt-2">
+                    <textarea
+                        bind:value={document1Text}
+                        on:blur={refreshEmbeddingsAndStore}
+                        class="{gray} {styleIsSimilar(1, idSimilar)}"
+                        name="document1"
+                    />
+                </div>
+            </div>
+
+            <div>
+                <div class="block text-sm font-bold leading-6 text-gray-900">Document 2</div>
+                <div class="mt-2">
+                    <textarea
+                        bind:value={document2Text}
+                        on:blur={refreshEmbeddingsAndStore}
+                        class="{gray} {styleIsSimilar(2, idSimilar)}"
+                        name="document2"
+                    />
+                </div>
+            </div>
+
+            <div>
+                <div class="block text-sm font-bold leading-6 text-gray-900">Document 3</div>
+                <div class="mt-2">
+                    <textarea
+                        bind:value={document3Text}
+                        on:blur={refreshEmbeddingsAndStore}
+                        class="{gray} {styleIsSimilar(3, idSimilar)}"
+                        name="document3"
+                    />
+                </div>
             </div>
         </div>
 
-        <div>
-            <label for="document2" class="block text-sm font-bold leading-6 text-gray-900">Document 2</label>
-            <div class="mt-2">
-                <textarea
-                    bind:value={document2Text}
-                    on:blur={refreshEmbeddingsAndStore}
-                    class="{gray} {styleIsSimilar(2, idSimilar)}"
-                    name="document2"
-                />
-            </div>
-        </div>
-
-        <div>
-            <label for="document3" class="block text-sm font-bold leading-6 text-gray-900">Document 3</label>
-            <div class="mt-2">
-                <textarea
-                    bind:value={document3Text}
-                    on:blur={refreshEmbeddingsAndStore}
-                    class="{gray} {styleIsSimilar(3, idSimilar)}"
-                    name="document3"
-                />
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-4">
-        <label for="search" class="block text-sm font-bold leading-6 text-gray-900">Suchbegriff</label>
-        <input class={gray} bind:value={searchNeedle} name="search" />
-        <button
-            on:click={startSearch}
-            class="mt-4 inline-flex items-center rounded-md bg-slate-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600 disabled:bg-slate-300"
-        >
-            Suchen
-        </button>
-
-        <div class="mt-4 flex items-center gap-x-8 gap-y-2 flex-wrap">
-            <a
-                class={pink}
-                aria-label="embeddings-and-query.zip"
-                href="https://github.com/alexmilde/website/tree/main/src/routes/(ai)/ai/embeddings-sample-app-javascript"
+        <div class="mt-4">
+            <div class="block text-sm font-bold leading-6 text-gray-900">Suchbegriff</div>
+            <input class={gray} bind:value={searchNeedle} name="search" />
+            <button
+                on:click={startSearch}
+                class="mt-4 inline-flex items-center rounded-md bg-slate-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600 disabled:bg-slate-300"
             >
-                <Icon type={iconTypes.git}></Icon>
-                <span>Diese Seite auf Github</span>
-            </a>
+                Suchen
+            </button>
 
-            <a class="flex {pink}" aria-label="embeddings-and-query.zip" href="/downloads/embeddings-and-query.zip">
-                <Icon type={iconTypes.more}></Icon>
-                <span>Download Node.js Version</span>
-            </a>
+            <div class="mt-4 flex items-center gap-x-8 gap-y-2 flex-wrap">
+                <a
+                    class={pink}
+                    aria-label="embeddings-and-query.zip"
+                    href="https://github.com/alexmilde/website/tree/main/src/routes/(ai)/ai/embeddings-sample-app-javascript"
+                >
+                    <Icon type={iconTypes.git}></Icon>
+                    <span>Diese Seite auf Github</span>
+                </a>
+
+                <a class="flex {pink}" aria-label="embeddings-and-query.zip" href="/downloads/embeddings-and-query.zip">
+                    <Icon type={iconTypes.more}></Icon>
+                    <span>Download Node.js Version</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
