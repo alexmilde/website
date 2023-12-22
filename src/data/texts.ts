@@ -47,7 +47,7 @@ const teaserAIBasicsEmbeddings: Teaser = {
     ],
 }
 
-export const articleTeasers: Array<Teaser> = [teaserSvelteBasics]
+export const articleTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings, teaserSvelteBasics]
 
 export const articles: Array<Article> = [
     {
@@ -79,14 +79,14 @@ export const articles: Array<Article> = [
             },
             {
                 headline: 'Ok, zeig mal!',
-                copy: `Diese Seite wurde mit Svelte und SvelteKit gebaut und zu Cloudflare Pages deployed. <a href="https://github.com/alexmilde/website">https://github.com/alexmilde/website</a>`,
+                copy: `Diese Seite wurde mit Svelte und SvelteKit gebaut und zu Vercel deployed. <a href="https://github.com/alexmilde/website">https://github.com/alexmilde/website</a>`,
             },
         ],
         details: [
             {
-                title: 'Cloudflare Pages',
-                url: 'https://pages.cloudflare.com',
-                copy: 'Kostenlos eine Fullstack Website hosten. Deployed in ein paar Minuten. Funfact: Diese Seite liegt bei Cloudflare pages.',
+                title: 'Vercel',
+                url: 'https://vercel.com/',
+                copy: 'Kostenlos eine Fullstack Website hosten. Deployed in ein paar Minuten. Funfact: Diese Seite liegt bei Vercel.',
             },
             {
                 title: 'Svelte Kit',
@@ -120,4 +120,4 @@ export const articles: Array<Article> = [
     },
 ]
 
-export const aiTeasers: Array<Teaser> = []
+export const aiTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings]
