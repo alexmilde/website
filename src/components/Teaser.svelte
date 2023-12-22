@@ -1,6 +1,7 @@
 <script lang="ts">
     import { iconTypes } from '../commons/constants'
     import { determineIconType } from '../commons/mappers'
+    import { pink } from '../commons/styles/link'
     import type { Teaser } from '../commons/types'
     import Icon from './Icon.svelte'
     export let data: Teaser
@@ -21,29 +22,16 @@
                     <p class="mt-1 text-base leading-7 text-slate-700">
                         {data.copy}
                     </p>
-                    <div class="mt-4 flex items-center gap-4">
+                    <div class="mt-4 flex items-center gap-x-8 gap-y-2 flex-wrap">
                         {#if data.hidemore !== true}
-                            <a
-                                href="/{prefix}/{data.slug}"
-                                aria-label={data.headline}
-                                class="flex items-center gap-x-2 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
-                            >
+                            <a href="/{prefix}/{data.slug}" aria-label={data.headline} class={pink}>
                                 <Icon type={iconTypes.more}></Icon>
                                 <span aria-hidden="true">Mehr</span>
                             </a>
-                            <span aria-hidden="true" class="text-sm font-bold text-slate-400">/</span>
                         {/if}
                         {#if data.links}
-                            {#each data.links as link, index}
-                                {#if index > 0}
-                                    <span aria-hidden="true" class="text-sm font-bold text-slate-400">/</span>
-                                {/if}
-
-                                <a
-                                    class="flex items-center gap-x-2 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
-                                    aria-label={link.title}
-                                    href={link.url}
-                                >
+                            {#each data.links as link}
+                                <a class={pink} aria-label={link.title} href={link.url}>
                                     <Icon type={determineIconType(link.url)}></Icon>
                                     <span>{link.title}</span>
                                 </a>

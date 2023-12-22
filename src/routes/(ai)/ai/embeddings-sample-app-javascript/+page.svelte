@@ -6,6 +6,7 @@
     import { iconTypes } from '../../../../commons/constants'
     import { getRandomInt } from '../../../../commons/utils'
     import Icon from '../../../../components/Icon.svelte'
+    import { pink } from '../../../../commons/styles/link'
 
     let idSimilar = 0
     let loading = false
@@ -71,7 +72,7 @@ console.log(id)
     {@html github}
 </svelte:head>
 
-<div class="mx-auto mb-10 px-4 sm:px-6 md:px-4 md:mr-10">
+<div class="mx-auto my-10 px-4 sm:px-6 md:px-4 md:mr-10">
     <form method="POST" use:enhance={evaluate}>
         <div class="grid grid-cols-3 gap-4">
             <div>
@@ -131,7 +132,7 @@ console.log(id)
                 <Highlight language={typescript} {code} />
             </div>
             <a
-                class="mt-4 flex items-center gap-x-2 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
+                class="mt-4 {pink}"
                 aria-label="embeddings-and-query.zip"
                 href="https://github.com/alexmilde/website/tree/main/src/routes/(ai)/ai/embeddings-sample-app-javascript"
             >
@@ -139,11 +140,7 @@ console.log(id)
                 <span>Diese Seite auf Github</span>
             </a>
 
-            <a
-                class="flex items-center gap-x-2 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
-                aria-label="embeddings-and-query.zip"
-                href="/downloads/embeddings-and-query.zip"
-            >
+            <a class="flex {pink}" aria-label="embeddings-and-query.zip" href="/downloads/embeddings-and-query.zip">
                 <Icon type={iconTypes.more}></Icon>
                 <span>Download Node.js Version</span>
             </a>
