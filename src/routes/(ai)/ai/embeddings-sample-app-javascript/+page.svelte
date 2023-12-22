@@ -7,6 +7,7 @@
     import { pink } from '../../../../commons/styles/link'
     import { gray } from '../../../../commons/styles/textarea'
 
+    let initialised = false
     let embeddings: Array<Array<number>>
     let document1Text = 'I like meat'
     let document2Text = 'I like apples'
@@ -20,11 +21,8 @@
 
     const vectorStore = new MemoryVectorStore(new HuggingFaceTransformersEmbeddings())
 
-    let initialised = false
-
     onMount(async () => {
         await refreshEmbeddingsAndStore()
-        console.log('init done')
         initialised = true
     })
 
