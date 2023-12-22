@@ -109,18 +109,20 @@
             Suchen
         </button>
 
-        <a
-            class="mt-8 {pink}"
-            aria-label="embeddings-and-query.zip"
-            href="https://github.com/alexmilde/website/tree/main/src/routes/(ai)/ai/embeddings-sample-app-javascript"
-        >
-            <Icon type={iconTypes.git}></Icon>
-            <span>Diese Seite auf Github</span>
-        </a>
+        <div class="mt-4 flex items-center gap-x-8 gap-y-2 flex-wrap">
+            <a
+                class={pink}
+                aria-label="embeddings-and-query.zip"
+                href="https://github.com/alexmilde/website/tree/main/src/routes/(ai)/ai/embeddings-sample-app-javascript"
+            >
+                <Icon type={iconTypes.git}></Icon>
+                <span>Diese Seite auf Github</span>
+            </a>
 
-        <a class="flex {pink}" aria-label="embeddings-and-query.zip" href="/downloads/embeddings-and-query.zip">
-            <Icon type={iconTypes.more}></Icon>
-            <span>Download Node.js Version</span>
-        </a>
+            <a class="flex {pink}" aria-label="embeddings-and-query.zip" href="/downloads/embeddings-and-query.zip">
+                <Icon type={iconTypes.more}></Icon>
+                <span>Download Node.js Version</span>
+            </a>
+        </div>
     </div>
 </div>
