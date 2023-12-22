@@ -11,7 +11,7 @@
     let document1Text = 'I like meat'
     let document2Text = 'I like apples'
     let document3Text = 'I like nature'
-    let searchNeedle = 'beef'
+    let searchNeedle = 'Lets hug a tree'
     let idSimilar = 0
 
     const model = new HuggingFaceTransformersEmbeddings({
@@ -20,8 +20,8 @@
 
     const vectorStore = new MemoryVectorStore(new HuggingFaceTransformersEmbeddings())
 
-    onMount(() => {
-        refreshEmbeddingsAndStore()
+    onMount(async () => {
+        await refreshEmbeddingsAndStore()
     })
 
     const refreshEmbeddingsAndStore = async () => {
@@ -58,7 +58,7 @@
     <h2 class="mt-2 text-lg font-bold text-slate-900">Anleitung</h2>
     <p class="mt-1 text-base leading-7 text-slate-700">
         Gib beliebige Texte in die drei Textfelder ein.<br />
-        Anschließend eine beliebige Suchphrase wählen, und „Suchen“<br />
+        Anschließend eine beliebige Suchphrase wählen und „Suchen“<br />
         Das ähnlichste Textfeld wird <b>Grün</b> markiert.
     </p>
     <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
