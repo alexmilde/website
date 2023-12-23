@@ -25,6 +25,20 @@ const teaserSvelteBasics: Teaser = {
     ],
 }
 
+const teaserAIWithoutAI: Teaser = {
+    date: '23.12.2023',
+    slug: 'without-ai-similar-color',
+    headline: 'KI ohne KI',
+    copy: '',
+    hidemore: true,
+    links: [
+        {
+            title: 'Ausprobieren',
+            url: '/ai/without-ai-similar-color',
+        },
+    ],
+}
+
 const teaserAIBasicsEmbeddings: Teaser = {
     date: '22.12.2023',
     slug: 'embeddings-sample-app-javascript',
@@ -120,4 +134,4 @@ export const articles: Array<Article> = [
     },
 ]
 
-export const aiTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings]
+export const aiTeasers: Array<Teaser> = [teaserAIWithoutAI, teaserAIBasicsEmbeddings]
