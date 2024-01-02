@@ -26,6 +26,24 @@ const teaserSvelteBasics: Teaser = {
     ],
 }
 
+const teaserAIWithoutAIAdvanced: Teaser = {
+    date: '04.02.2024',
+    slug: 'without-ai-similar-color',
+    headline: 'KI ohne KI Advanced',
+    copy: 'Aus einer Liste von Farben suchen wir mehrere ähnliche Farben, mit verschiedenen Algorithmen. ',
+    hidemore: true,
+    links: [
+        {
+            title: 'Ausprobieren',
+            url: '/ai/without-ai-similar-color-advanced',
+        },
+        {
+            title: 'Code auf Github',
+            url: pathGithubExperiments + '/without-ai-similar-color-advanced',
+        },
+    ],
+}
+
 const teaserAIWithoutAI: Teaser = {
     date: '02.02.2024',
     slug: 'without-ai-similar-color',
@@ -65,8 +83,6 @@ const teaserAIBasicsEmbeddings: Teaser = {
         },
     ],
 }
-
-export const articleTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings, teaserSvelteBasics]
 
 export const articles: Array<Article> = [
     {
@@ -139,4 +155,5 @@ export const articles: Array<Article> = [
     },
 ]
 
-export const aiTeasers: Array<Teaser> = [teaserAIWithoutAI, teaserAIBasicsEmbeddings]
+export const aiTeasers: Array<Teaser> = [teaserAIWithoutAIAdvanced, teaserAIWithoutAI, teaserAIBasicsEmbeddings]
+export const articleTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings, teaserSvelteBasics]
