@@ -1,3 +1,4 @@
+import { pathGithubExperiments } from '../commons/constants'
 import type { Article, Teaser } from '../commons/types'
 
 export const metaData = {
@@ -26,15 +27,19 @@ const teaserSvelteBasics: Teaser = {
 }
 
 const teaserAIWithoutAI: Teaser = {
-    date: '23.12.2023',
+    date: '02.02.2024',
     slug: 'without-ai-similar-color',
     headline: 'KI ohne KI',
-    copy: '',
+    copy: 'Aus einer Liste von Farben suchen wir die ähnlichste Farbe.',
     hidemore: true,
     links: [
         {
             title: 'Ausprobieren',
             url: '/ai/without-ai-similar-color',
+        },
+        {
+            title: 'Code auf Github',
+            url: pathGithubExperiments + '/embeddings-sample-app-javascript',
         },
     ],
 }
@@ -56,7 +61,7 @@ const teaserAIBasicsEmbeddings: Teaser = {
         },
         {
             title: 'Code auf Github',
-            url: 'https://github.com/alexmilde/website/tree/main/src/routes/(ai)/ai/embeddings-sample-app-javascript',
+            url: pathGithubExperiments + '/embeddings-sample-app-javascript',
         },
     ],
 }

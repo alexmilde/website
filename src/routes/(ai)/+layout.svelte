@@ -8,7 +8,9 @@
 <div class="w-full font-[300]">
     <Header hideInfobarDeails></Header>
     <Main hideInfobarDeails>
-        <slot />
+        <div class="divide-y divide-slate-200 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
+            <slot />
+        </div>
     </Main>
 </div>
 <Footer />
