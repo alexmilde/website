@@ -23,6 +23,11 @@ export interface Detail extends Link {
     copy: string
 }
 
+export interface LinkWithIcon extends Link {
+    icon: string
+    iconClass?: string
+}
+
 export interface Link {
     title: string
     url: string
