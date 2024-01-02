@@ -39,7 +39,7 @@ const teaserAIWithoutAI: Teaser = {
         },
         {
             title: 'Code auf Github',
-            url: pathGithubExperiments + '/embeddings-sample-app-javascript',
+            url: pathGithubExperiments + '/without-ai-similar-color',
         },
     ],
 }
