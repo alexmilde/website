@@ -1,5 +1,9 @@
 export default [
     {
+        name: 'Cosine Issue',
+        rgb: [12, 23, 6],
+    },
+    {
         name: 'AliceBlue',
         rgb: [240, 248, 255],
     },

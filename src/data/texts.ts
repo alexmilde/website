@@ -13,11 +13,18 @@ export const lastWork = {
     copy: `Dem wunderbaren Hamburger Modelabel <a class="underline" href="https://www.closed.com/">CLOSED</a> habe ich geholfen technical Debt abzubauen und eine Headless Commerce Architektur aufzubauen.`,
 }
 
+const teaserAIColors: Teaser = {
+    date: '04.01.2024',
+    slug: 'ai-colors',
+    headline: 'Wie funktioniert AI?',
+    copy: 'Anhand eines Farbfilters versuche ich für Laien zu erklären wie AI funktioniert.',
+}
+
 const teaserSvelteBasics: Teaser = {
     date: '21.12.2023',
     slug: 'svelte-basics',
     headline: 'Hallo Svelt(e) – Warum ich Fan bin',
-    copy: 'In letzter Zeit habe ich viel mit Svelte, und SvelteKit gearbeitet. Dafür gab es ein paar gute Gründe. ',
+    copy: 'In letzter Zeit habe ich viel mit Svelte, und SvelteKit gearbeitet. Dafür gab es ein paar gute Gründe.',
     links: [
         {
             title: 'Code dieser Website',
@@ -27,7 +34,7 @@ const teaserSvelteBasics: Teaser = {
 }
 
 const teaserAIWithoutAIAdvanced: Teaser = {
-    date: '04.02.2024',
+    date: '03.01.2024',
     slug: 'without-ai-similar-color',
     headline: 'KI ohne KI Advanced',
     copy: 'Aus einer Liste von Farben suchen wir mehrere ähnliche Farben, mit verschiedenen Algorithmen. ',
@@ -85,6 +92,66 @@ const teaserAIBasicsEmbeddings: Teaser = {
 }
 
 export const articles: Array<Article> = [
+    {
+        teaser: teaserAIColors,
+        content: [
+            {
+                headline: 'Wann ist eine Farbe ähnlich?',
+                copy: `Sagen wir es gibt folgende RGB Farben. Wie finden wir das ähnlichste Rot?
+                <pre>
+let redOriginal = [255, 0, 0]
+let red1 = [235, 0, 0]
+let red2 = [245, 5, 20]
+let red3 = [240, 10, 15] </pre>
+                Wir können die Differenz jedes einzelnen Kanals ermitteln und aufsummieren.<br/>Die <strong>kleinste Zahl</strong> sollte die ähnlichste Farbe sein.
+                <pre>
+let redOriginal = [255, 0, 0]
+let red1Diff = [20, 0, 0] // Sum: 20
+let red2 = [10, 5, 20] // Sum : 35
+let red3 = [15, 10, 15] // Sum: 40</pre>
+
+                Das kannst du <a href="/ai/without-ai-similar-color">hier testen</a>
+                 `,
+            },
+            {
+                headline: 'Wir denken in Pfeilen',
+                copy: `Jetzt stellen wir uns ein <a href="https://de.wikipedia.org/wiki/3D">3D Koordinatensystem</a> vor. Mit X,Y,Z.<br />
+                Eine Farbe könnte nun ein Pfeil sein.<br/>Es gibt nun verschiedene Methoden um zu vergleichen wie "ähnlich" diese Pfeile sind. z.b.
+                 vergleicht die Kosinus Similarität die Richtung der Pfeile, aber nicht die Länge.<br/>
+                 <pre>
+// Kosinus Similarität
+let orig = [123, 231, 64]
+let color1 = [122, 230, 63] // Sehr ähnlich
+let color2 = [12, 23, 6] // Auch sehr ähnlich weil r,g,b geteilt durch 10</pre>
+                Das kannst du <a href="/ai/without-ai-similar-color-advanced">hier testen</a>`,
+            },
+            {
+                headline: 'Unendliche Weiten! Und Dimensionen',
+                copy: `Der Clou ist nun: Das funktioniert für beliebige Dimensionen, nicht nur 3. <strong>So können Texte verglichen werden</strong>. Zum Beispiel
+                sind sich die Worte <strong>booze</strong> und <strong>beer</strong> ähnlicher als <strong>booze</strong> und <strong>applejuice</strong>.<br/>
+                Das kannst du <a href="/ai/embeddings-sample-app-javascript">hier testen</a>
+                <br/>
+                Hier werden Texte in Embeddings [0.12321,0.231212,0.123124....] verwandelt. Das Gleiche geschieht mit der Eingabe. Anschließend werden die Embeddings / Vektoren verglichen.
+                <br/><br/>
+                Fertig! Ich hoffe das Ganze war halbwegs verständlich.<br/>
+                Natürlich war das nur die "Spitze des Eisberges."
+
+                `,
+            },
+        ],
+        details: [
+            {
+                title: 'Langchain',
+                url: 'https://js.langchain.com/docs/get_started/introduction',
+                copy: 'LangChain is a framework for developing applications powered by language models.',
+            },
+            {
+                title: 'Huggingface',
+                url: 'https://huggingface.co/',
+                copy: 'Modelle und Datensets',
+            },
+        ],
+    },
     {
         teaser: teaserSvelteBasics,
         content: [
@@ -156,4 +223,3 @@ export const articles: Array<Article> = [
 ]
 
 export const aiTeasers: Array<Teaser> = [teaserAIWithoutAIAdvanced, teaserAIWithoutAI, teaserAIBasicsEmbeddings]
-export const articleTeasers: Array<Teaser> = [teaserAIBasicsEmbeddings, teaserSvelteBasics]

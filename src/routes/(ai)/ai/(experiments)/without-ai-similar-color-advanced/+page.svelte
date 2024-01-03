@@ -8,7 +8,7 @@
     let green = 231
     let blue = 64
 
-    let showDetails = false
+    let showDetails = true
     let sorted: Array<{ [key: number]: { name: string } }> = []
 
     const cosineSimilarity = (vectorA: Array<number>, vectorB: Array<number>): number => {
@@ -125,7 +125,7 @@
 </div>
 
 <h2 class="mt-6 text-lg font-bold text-slate-900">Ähnlichste Farben</h2>
-<div class="grid grid-cols-4 sm:grid-cols-8 gap-x-8 gap-y-2 mt-2">
+<div class="grid grid-cols-3 sm:grid-cols-8 gap-x-8 gap-y-2 mt-2">
     {#each sorted as color}
         <div class=" w-32 h-32 truncate" style="background-color: rgb({color.rgb[0]},{color.rgb[1]},{color.rgb[2]});">
             <span class="bg-white text-xs ml-2 mt-1 px-1 py-0.5" class:hidden={!showDetails}>{color.name}</span><br />

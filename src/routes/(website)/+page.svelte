@@ -1,8 +1,9 @@
 <script lang="ts">
     import Teaser from '../../components/Teaser.svelte'
-    import { articleTeasers, metaData } from '../../data/texts'
+    import { articles, metaData } from '../../data/texts'
     export let data
     const { headline } = data
+    const articleTeasers = articles.map((article) => article.teaser)
 </script>
 
 <svelte:head>
