@@ -10,7 +10,7 @@ export const metaData = {
 
 export const lastWork = {
     headline: 'Letzte Buchung',
-    copy: `Dem wunderbaren Hamburger Modelabel <a class="underline" href="https://www.closed.com/">CLOSED</a> habe ich geholfen technical Debt abzubauen und eine Headless Commerce Architektur aufzubauen.`,
+    copy: `Dem wunderbaren Hamburger Modelabel <a class="underline" href="https://www.closed.com/">CLOSED</a> habe ich geholfen technical Debt abzubauen und eine Headless Commerce Architektur aufzubauen.<br/>Aktuell habe ich Zeit für Neues.`,
 }
 
 const teaserAIColors: Teaser = {
@@ -128,7 +128,7 @@ let color2 = [12, 23, 6] // Auch sehr ähnlich weil r,g,b geteilt durch 10</pre>
             {
                 headline: 'Unendliche Weiten! Und Dimensionen',
                 copy: `Der Clou ist nun: Das funktioniert für beliebige Dimensionen, nicht nur 3. <strong>So können Texte verglichen werden</strong>. Zum Beispiel
-                sind sich die Worte <strong>booze</strong> und <strong>beer</strong> ähnlicher als <strong>booze</strong> und <strong>applejuice</strong>.<br/>
+                sind sich die Worte <strong>mountains</strong> und <strong>nature</strong> ähnlicher als <strong>mountains</strong> und <strong>ocean</strong>.<br/>
                 Das kannst du <a href="/ai/embeddings-sample-app-javascript">hier testen</a>
                 <br/>
                 Hier werden Texte in Embeddings [0.12321,0.231212,0.123124....] verwandelt. Das Gleiche geschieht mit der Eingabe. Anschließend werden die Embeddings / Vektoren verglichen.

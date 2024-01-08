@@ -9,7 +9,7 @@
     <Teaser data={aiTeaser} prefix="ai" />
 {/each}
 
-<div class="pt-8 lg:px-8">
+<div class="pt-8 lg:px-8 ml-4">
     <a
         class="flex items-center gap-x-2 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
         aria-label="Ausprobieren"

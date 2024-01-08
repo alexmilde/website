@@ -32,7 +32,7 @@
                 ></path></svg
             ><span class="ml-2.5">{lastWork.headline}</span>
         </h2>
-        <p class="mt-2 text-base leading-7 text-slate-700 lg:line-clamp-4">
+        <p class="mt-2 text-base leading-7 text-slate-700">
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html lastWork.copy}
         </p>

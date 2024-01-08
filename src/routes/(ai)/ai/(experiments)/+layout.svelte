@@ -3,7 +3,7 @@
     import Icon from '../../../../components/Icon.svelte'
 </script>
 
-<div class=" mx-auto my-10 px-4 sm:px-6 md:px-4 md:mr-10">
+<div class="mx-auto my-10 px-4 sm:px-6 md:px-4">
     <slot />
     <div class="mt-8">
         <a
