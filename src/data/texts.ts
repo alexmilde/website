@@ -132,6 +132,8 @@ let color2 = [12, 23, 6] // Auch sehr ähnlich weil r,g,b geteilt durch 10</pre>
                 Das kannst du <a href="/ai/embeddings-sample-app-javascript">hier testen</a>
                 <br/>
                 Hier werden Texte in Embeddings [0.12321,0.231212,0.123124....] verwandelt. Das Gleiche geschieht mit der Eingabe. Anschließend werden die Embeddings / Vektoren verglichen.
+                <br/>
+                <strong>Wichtig: Das ganze Thema hab ich hier bewusst sehr sehr stark vereinfacht.</strong>
                 <br/><br/>
                 Fertig! Ich hoffe das Ganze war halbwegs verständlich.<br/>
                 Natürlich war das nur die "Spitze des Eisberges."
