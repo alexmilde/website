@@ -5,27 +5,49 @@
     import { plotLayout, markers, lines } from '../../../../../ai-utils/plot'
     import { predict, train } from '../../../../../ai-utils/methods'
 
+    import * as tf from '@tensorflow/tfjs'
+
     let data: object[] = []
-    let reloadPlot = 0 //change this to force reload the plot
-    let loaded // use this to know when the plot is fully loaded
+    let reloadPlot = 0
+    let loaded = false
+    let trainingFinished = false
 
     let layout = plotLayout('Pizzas', 'Reservations')
 
+    let t = tf.tensor1d([1, 2, 3, 4])
+
+    let r = tf.mul(t, t)
+    r.print()
+
     onMount(async () => {
         const [x, y] = await loadtxt('/data/pizza.txt')
-        let w = train(x, y, 1000000, 0.01)
+        let trainingResult = train(x, y, 10000, 0.01)
+        trainingFinished = true
 
-        if (!w) {
+        if (!trainingResult) {
             console.log('Issue while training')
             return
         }
 
+        let [w, b] = trainingResult
+
         let xMax = Math.max(...x)
-        data = [markers(x, y, 'Raw Data'), lines([0, xMax], [predict([0], w)[0], predict([xMax], w)[0]], 'Prediction')]
+        data = [
+            markers(x, y, 'Raw Data'),
+            lines([0, xMax], [predict([0], w, b)[0], predict([xMax], w, b)[0]], 'Prediction'),
+        ]
     })
 </script>
 
-<div class="[&_.main-svg]:absolute [&_.main-svg]:pointer-events-none">
+{#if !trainingFinished}
+    Training, please wait
+{:else}
+    Training finished
+{/if}
+
+<p>Öffne die Konsole für mehr details</p>
+
+<div class="mt-8 [&_.main-svg]:absolute [&_.main-svg]:pointer-events-none">
     <Plotly
         id="id"
         {data}
