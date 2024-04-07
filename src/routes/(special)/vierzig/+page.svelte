@@ -14,7 +14,7 @@
 </svelte:head>
 
 <div
-    class="py-4 sm:py-10 md:py-20 mx-8 sm:mx-14 md:mx-20 text-6xl sm:text-7xl md:text-8xl leading-tight 12md:leading-[100px] cursor-drink"
+    class="py-2 sm:py-10 md:py-20 mx-2 sm:mx-14 md:mx-20 text-[35px] sm:text-7xl md:text-8xl leading-tight 12md:leading-[100px] cursor-drink"
 >
     <div class="max-w-[1280px]">
         <h1 class="font-inter font-black text-white">
