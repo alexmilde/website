@@ -1,4 +1,14 @@
 /* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
-@tailwind utilities
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: local('Inter'), url('/fonts/inter/Inter-Black.ttf');
+    }
+}
