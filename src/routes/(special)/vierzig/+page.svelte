@@ -13,11 +13,11 @@
     <title>AM40</title>
 </svelte:head>
 
-<div
-    class="py-2 sm:py-10 md:py-20 mx-2 sm:mx-14 md:mx-20 text-[35px] sm:text-7xl md:text-8xl leading-tight 12md:leading-[100px] cursor-drink"
->
+<div class="py-2 sm:py-10 md:py-20 mx-2 sm:mx-14 md:mx-20 cursor-drink">
     <div class="max-w-[1280px]">
-        <h1 class="font-inter font-black text-white">
+        <h1
+            class="font-inter font-black text-white text-[35px] sm:text-7xl md:text-8xl leading-tight 12md:leading-[100px]"
+        >
             Man wird nur <span class={gradient}>einmal 40 im Leben.</span> Aber 37 oder so ja auch. Egal: diesen Fetisch
             der Null möchte ich <span class={gradient}>mit dir feiern.</span>
             <br />
@@ -34,7 +34,13 @@
                 <span class={gradient}>Pattweg, Herford.</span>
             </a>
             Eins noch: Du bist aber sowas von dabei?! <span class={gradient}>Gib kurz Bescheid.</span> Das hilft mir die
-            Größe des Mettigels zu planen.
+            Größe des Mettigels zu planen.<span class={gradient}> Geschenk?</span>
         </h1>
+        <p class="font-inter text-white mt-0.5 sm:mt-4 md:w-8/12">
+            <span class="text-sm sm:text-xl leading-3">
+                Ich wünsche mir nichts. Wer es dennoch nicht lassen kann: Es wird eine Spendenbox geben. Das Geld geht
+                an Ärzte ohne Grenzen
+            </span>
+        </p>
     </div>
 </div>
