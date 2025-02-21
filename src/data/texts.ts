@@ -9,8 +9,8 @@ export const metaData = {
 }
 
 export const lastWork = {
-    headline: 'Letzte Buchung',
-    copy: `Dem wunderbaren Hamburger Modelabel <a class="underline" href="https://www.closed.com/">CLOSED</a> habe ich geholfen technical Debt abzubauen und eine Headless Commerce Architektur aufzubauen.<br/>Aktuell habe ich Zeit für Neues.`,
+    headline: 'Work',
+    copy: `I'm working for procure.ai helping them to improve their product even further.`,
 }
 
 const teaserAIColors: Teaser = {

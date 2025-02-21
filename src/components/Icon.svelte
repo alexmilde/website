@@ -73,19 +73,3 @@
         </g>
     </svg>
 {/if}
-
-{#if type === iconTypes.xing}
-    <svg
-        aria-hidden="true"
-        class="h-4 w-4 sm:h-6 sm:w-6 fill-slate-400 group-hover:fill-slate-600"
-        viewBox="0 0 512 512"
-    >
-        <g>
-            <rect width="512" height="512" rx="15%"></rect>
-            <path
-                d="M131 157l36 60v1l-54 94c-4 7-1 11 3 11h58c3 0 4 0 6-3l57-99v-2l-40-64-2-4-4-1h-56c-3 0-5 3-4 7zm217-74c-5 0-7 2-10 6L225 287v2l75 133c2 3 4 4 8 4h54c6 0 8-3 5-9l-74-128L406 90c2-4-1-7-5-7z"
-                fill="#ffffff"
-            ></path>
-        </g>
-    </svg>
-{/if}

@@ -4,7 +4,6 @@ export const git = 'git'
 export const lab = 'lab'
 export const linkedIn = 'linkedIn'
 export const more = 'more'
-export const xing = 'xing'
 export const unknown = 'unknown'
 export const iconTypes = {
     back,
@@ -13,7 +12,6 @@ export const iconTypes = {
     lab,
     linkedIn,
     more,
-    xing,
     unknown,
 }
 
